@@ -16,7 +16,7 @@ public class Conta {
     String dataAbertura;
     
     
-    public boolean sacar (double valor){
+    public boolean sacar(double valor){
         if (this.saldo < valor){
             return false;
         } else{
@@ -36,4 +36,22 @@ public class Conta {
     public void impressao (){
         System.out.printf("Seu saldo disponivel e: %f, sr. %s", this.saldo, this.titular);
     }
+    
+    public String toString(){
+        return "[titular = " + titular + ", numero = " + numero + ", agencia= " + agencia + "]";
+    }
+    
+    public boolean equals(Object object){
+        if (object == null){
+            return false;
+        }
+        Conta outraConta = (Conta) object;
+        
+        if(this.titular.equals(outraConta.titular)){
+            return true;
+        }
+        return false;
+    }
+    
+    
 }
